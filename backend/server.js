@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
-import Pais from './models/pais';
+let paises = require('./routes/pais.route');
 
 const app  = express();
 const router = express.Router();
@@ -19,11 +19,13 @@ connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
 
-app.use('/', router)
+app.use('/', router);
 
 router.route('/').get((req,res) => {
     res.send('teste');
-})
+});
+
+app.use(paises);
 
 app.listen(4000, ()=>{
     console.log('Running on port 4000');
