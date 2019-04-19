@@ -6,4 +6,4 @@ module.exports = {
 
 async function getPaises(){
     return await Pais.find({});
-}
+} 

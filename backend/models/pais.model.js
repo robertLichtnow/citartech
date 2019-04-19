@@ -8,11 +8,14 @@ let PaisSchema = new Schema({
     },
     nome:{
         type: String
-    }
+    },
 });
 
-PaisSchema.virtual('nomeCompleto').get(() => {
+PaisSchema.virtual('nomeCompleto').get(function() {
     return `(${this.sigla}) ${this.nome}`;
 });
+
+PaisSchema.set('toObject',{getters:true});
+PaisSchema.set('toJSON',{getters:true});
 
 export default mongoose.model('pais',PaisSchema);

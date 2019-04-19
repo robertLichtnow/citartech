@@ -4,7 +4,7 @@ const config = {
         'mongodb://localhost/citartech',
         options: []
     },
-    port: process.env.port ||
+    port: process.env.PORT ||
     '4000'
 }
 

@@ -8,7 +8,7 @@ router.route('/pais').get(asyncHandler(getPaises));
 
 async function getPaises(req, res){
     let paises = await paisCtrl.getPaises();
-    res.json(paises);
+    res.json(paises)
 }
 
 module.exports = router;

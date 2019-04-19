@@ -17,6 +17,7 @@ services:
       ports:
          - "4000:4000"
       environment:
+         - PORT=4000
          - MONGO_URL=mongodb://database/citartech
       depends_on: 
          - database

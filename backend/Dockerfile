@@ -19,6 +19,6 @@ WORKDIR /usr/src/app
  
 COPY --from=builder /usr/src/app .
  
-EXPOSE 8080
+EXPOSE 4000
  
 CMD [ "npm", "run", "dev" ]
