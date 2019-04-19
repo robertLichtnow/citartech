@@ -1,0 +1,27 @@
+version: '3' # specify docker-compose version
+ 
+# Define the services/containers to be run
+services:
+   database: # name of the third service
+      image: mongo # specify image to build container from
+      ports:
+         - "27017:27017"
+   dbseed:
+      build: ./dbseed
+      depends_on: 
+         - database
+      links:
+         - database
+   server: # name of the first service
+      build: ./backend # specify the directory of the Dockerfile
+      ports:
+         - "4000:4000"
+      environment:
+         - MONGO_URL=mongodb://database/citartech
+      depends_on: 
+         - database
+      links:
+         - database
+
+
+  

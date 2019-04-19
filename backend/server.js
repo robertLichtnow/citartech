@@ -3,7 +3,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
-let paises = require('./routes/pais.route');
+const config = require('./config');
+
+const paises = require('./routes/pais.route');
 
 const app  = express();
 const router = express.Router();
@@ -11,7 +13,9 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/citartech');
+mongoose.connect(config.mongo.uri, config.mongo.options);
+
+console.log(config.mongo.uri);
 
 const connection = mongoose.connection;
 
@@ -27,6 +31,6 @@ router.route('/').get((req,res) => {
 
 app.use(paises);
 
-app.listen(4000, ()=>{
-    console.log('Running on port 4000');
+app.listen(config.port, ()=>{
+    console.log(`Running on port ${config.port}`);
 })
