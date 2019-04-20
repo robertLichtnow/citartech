@@ -1,9 +1,30 @@
-import Pais from '../models/pais.model'
+import Pais from '../models/pais.model';
+
+const fs = require('fs');
+const json2csv = require('json2csv').parse;
 
 module.exports = {
-    getPaises
+    getPaises,
+    getPaisesCSV
 }
 
-async function getPaises(){
-    return await Pais.find({}).sort({'nome':-1});
-} 
+async function getPaises() {
+    return await Pais.find({}).sort({ 'nome': -1 });
+}
+
+async function getPaisesCSV() {
+    const paises = await Pais.find({}).sort({ 'nome': -1 });
+
+    const fields = ['sigla', 'nome', 'nomeCompleto'];
+    const opts = {fields: fields, header: true};
+    const path = __dirname + '/../arquivos/csv/paises.csv';
+    try{
+        const csv = json2csv(paises, opts);
+        fs.writeFileSync(path,csv);
+    }
+    catch(e){
+        //catch apenas para o throw não ir para a frente, pois o path vai se manter
+        //este fluxo já cuida de sempre devolver uma versão do csv, mesmo que ocorra erro
+    } 
+    return path;
+}

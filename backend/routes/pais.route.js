@@ -11,4 +11,11 @@ async function getPaises(req, res){
     res.json(paises)
 }
 
+router.route('/api/pais/csv').get(asyncHandler(getPaisesCSV));
+
+async function getPaisesCSV(req, res){
+    let file = await paisCtrl.getPaisesCSV();
+    res.download(file);
+}
+
 module.exports = router;
