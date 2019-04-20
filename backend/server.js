@@ -26,10 +26,6 @@ connection.once('open', () => {
 
 app.use('/', router);
 
-router.route('/').get((req,res) => {
-    res.send('teste');
-});
-
 app.use(paises);
 
 app.listen(config.port, ()=>{

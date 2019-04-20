@@ -21,6 +21,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "cors": "^2.8.5",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-async-handler": "^1.1.4",
     "json2csv": "^4.5.0",
