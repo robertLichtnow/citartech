@@ -4,6 +4,9 @@ const paisCtrl = require('../controllers/pais.controller');
 
 const router = express.Router();
 
+/**
+ * Rota para a lista de países
+ */
 router.route('/pais').get(asyncHandler(getPaises));
 
 /**
@@ -17,6 +20,9 @@ async function getPaises(req, res){
     res.render('pais/paises',{paises:paises})
 }
 
+/**
+ * Rota para o CSV de países
+ */
 router.route('/api/pais/csv').get(asyncHandler(getPaisesCSV));
 
 /**
@@ -31,6 +37,9 @@ async function getPaisesCSV(req, res){
     res.download(file);
 }
 
+/**
+ * Rota para o XLSX de países
+ */
 router.route('/api/pais/xlsx').get(asyncHandler(getPaisesXLSX));
 
 /**
