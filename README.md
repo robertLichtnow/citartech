@@ -14,4 +14,6 @@ O servidor estará disponível em `localhost:4000` e os botões de acesso ao ser
 
 ## Testes
 
-Em desenvolvimento
+Para rodar os testes, é necessário uma instância do mongodb rodando no endereço `mongodb://localhost:27017` com a database `citartech_test` criadao. Caso ela não esteja criada, os testes irão criá-la, mas será mostrado um erro.
+
+Os comandos para rodar os testes são `npm install`, caso ainda não o tenha feito e `npm test`
