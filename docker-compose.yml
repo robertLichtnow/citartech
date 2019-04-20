@@ -6,6 +6,7 @@ services:
       image: mongo # specify image to build container from
       ports:
          - "27017:27017"
+      #command: "mongo mongodb://database/citartech --eval 'db.pais.drop()'"
    dbseed:
       build: ./dbseed
       depends_on: 

@@ -5,5 +5,5 @@ module.exports = {
 }
 
 async function getPaises(){
-    return await Pais.find({});
+    return await Pais.find({}).sort({'nome':-1});
 } 
