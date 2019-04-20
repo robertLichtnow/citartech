@@ -51,7 +51,6 @@ async function getPaisesXLSX(){
         fs.writeFileSync(filePath,xlsx,'binary');
     }
     catch(e){
-        console.log(e);
         //catch apenas para o throw não ir para a frente, pois o path vai se manter
         //este fluxo já cuida de sempre devolver uma versão do xlsx, mesmo que ocorra erro
     }
