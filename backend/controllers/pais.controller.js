@@ -24,7 +24,7 @@ async function getPaisesCSV() {
     const paises = await Pais.find({}).sort({ 'nome': -1 });
 
     const fields = ['sigla', 'nome', 'nomeCompleto'];
-    const opts = {fields: fields, header: true};
+    const opts = {fields: fields, header: true, quote: ''};
     const path = __dirname + '/../arquivos/csv/paises.csv';
     try{
         const csv = json2csv(paises, opts);
