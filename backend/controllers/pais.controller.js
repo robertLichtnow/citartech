@@ -25,16 +25,16 @@ async function getPaisesCSV() {
 
     const fields = ['sigla', 'nome', 'nomeCompleto'];
     const opts = {fields: fields, header: true, quote: ''};
-    const path = path.join(__dirname, '/../arquivos/csv/paises.csv');
+    const filePath = path.join(__dirname, '/../arquivos/csv/paises.csv');
     try{
         const csv = json2csv(paises, opts);
-        fs.writeFileSync(path,csv);
+        fs.writeFileSync(filePath,csv);
     }
     catch(e){
         //catch apenas para o throw não ir para a frente, pois o path vai se manter
         //este fluxo já cuida de sempre devolver uma versão do csv, mesmo que ocorra erro
     } 
-    return path;
+    return filePath;
 }
 
 /**
@@ -45,15 +45,15 @@ async function getPaisesXLSX(){
 
     const fields = ['sigla', 'nome', 'nomeCompleto'];
     const opts = {fields:fields}
-    const path = path.join(__dirname, '/../arquivos/xlsx/paises.xlsx');
+    const filePath = path.join(__dirname, '/../arquivos/xlsx/paises.xlsx');
     try{
         const xlsx = json2xls(paises,opts);
-        fs.writeFileSync(path,xlsx,'binary');
+        fs.writeFileSync(filePath,xlsx,'binary');
     }
     catch(e){
         console.log(e);
         //catch apenas para o throw não ir para a frente, pois o path vai se manter
         //este fluxo já cuida de sempre devolver uma versão do xlsx, mesmo que ocorra erro
     }
-    return path;
+    return filePath;
 }
