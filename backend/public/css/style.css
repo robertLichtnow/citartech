@@ -1,0 +1,13 @@
+.full{
+    margin:30px;
+    width:100%;
+    display:grid;
+    grid-gap: 20px;
+    grid-template-columns: calc((100% / 3) - (100px / 3)) calc((100% / 3) - (100px / 3)) calc((100% / 3) - (100px / 3));
+}
+
+.col{
+    background-color:lightblue;
+    padding:10px;
+    border-radius:5px;
+}

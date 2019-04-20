@@ -13,6 +13,7 @@ const router = express.Router();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
@@ -23,6 +24,12 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
+
+router.route('/').get((req, res) => {
+    res.render('index');
+});
+
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', router);
 

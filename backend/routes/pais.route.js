@@ -4,7 +4,7 @@ const paisCtrl = require('../controllers/pais.controller');
 
 const router = express.Router();
 
-router.route('/api/pais').get(asyncHandler(getPaises));
+router.route('/pais').get(asyncHandler(getPaises));
 
 /**
  * Chamada para método de controller para obtenção de países
@@ -14,7 +14,7 @@ router.route('/api/pais').get(asyncHandler(getPaises));
  */
 async function getPaises(req, res){
     let paises = await paisCtrl.getPaises();
-    res.json(paises)
+    res.render('pais',{paises:paises})
 }
 
 router.route('/api/pais/csv').get(asyncHandler(getPaisesCSV));
