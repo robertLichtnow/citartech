@@ -1,8 +1,8 @@
-import Pais from '../models/pais.model';
-
+const Pais = require('../models/pais.model');
 const fs = require('fs');
 const json2csv = require('json2csv').parse;
 const json2xls = require('json2xls');
+const path = require('path')
 
 module.exports = {
     getPaises,
@@ -25,7 +25,7 @@ async function getPaisesCSV() {
 
     const fields = ['sigla', 'nome', 'nomeCompleto'];
     const opts = {fields: fields, header: true, quote: ''};
-    const path = __dirname + '/../arquivos/csv/paises.csv';
+    const path = path.join(__dirname, '/../arquivos/csv/paises.csv');
     try{
         const csv = json2csv(paises, opts);
         fs.writeFileSync(path,csv);
@@ -45,7 +45,7 @@ async function getPaisesXLSX(){
 
     const fields = ['sigla', 'nome', 'nomeCompleto'];
     const opts = {fields:fields}
-    const path = __dirname + '/../arquivos/xlsx/paises.xlsx';
+    const path = path.join(__dirname, '/../arquivos/xlsx/paises.xlsx');
     try{
         const xlsx = json2xls(paises,opts);
         fs.writeFileSync(path,xlsx,'binary');

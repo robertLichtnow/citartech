@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -28,4 +28,4 @@ PaisSchema.virtual('nomeCompleto').get(function() {
 PaisSchema.set('toObject',{getters:true});
 PaisSchema.set('toJSON',{getters:true});
 
-export default mongoose.model('pais',PaisSchema);
+module.exports = mongoose.model('pais',PaisSchema);
