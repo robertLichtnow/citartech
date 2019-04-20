@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>Sigla</td>
+                <td>Nome</td>
+                <td>Nome Completo</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i<paises.length;i++){ %>
+                <tr>
+                    <td><%= paises[i].sigla %></td>
+                    <td><%= paises[i].nome %></td>
+                    <td><%= paises[i].nomeCompleto %></td>
+                </tr>
+            <% } %>
+        </tbody>    
+    </table>
+
+</body>

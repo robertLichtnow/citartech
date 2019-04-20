@@ -14,7 +14,7 @@ router.route('/pais').get(asyncHandler(getPaises));
  */
 async function getPaises(req, res){
     let paises = await paisCtrl.getPaises();
-    res.render('pais',{paises:paises})
+    res.render('pais/paises',{paises:paises})
 }
 
 router.route('/api/pais/csv').get(asyncHandler(getPaisesCSV));
