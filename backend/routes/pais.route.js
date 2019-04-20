@@ -18,4 +18,11 @@ async function getPaisesCSV(req, res){
     res.download(file);
 }
 
+router.route('/api/pais/xlsx').get(asyncHandler(getPaisesXLSX));
+
+async function getPaisesXLSX(req, res){
+    let file = await paisCtrl.getPaisesXLSX();
+    res.download(file);
+}
+
 module.exports = router;

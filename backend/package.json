@@ -24,6 +24,7 @@
     "express": "^4.16.4",
     "express-async-handler": "^1.1.4",
     "json2csv": "^4.5.0",
+    "json2xls": "^0.1.2",
     "mongoose": "^5.5.2"
   }
 }
